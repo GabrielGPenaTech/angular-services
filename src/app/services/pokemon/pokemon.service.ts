@@ -19,6 +19,7 @@ export class PokemonService {
 
   getPokemon(name: string): Observable<PokemonData> {
     const data = this.http.get<PokemonData>(this.baseUrl + name)
+
     return data
   }
 }

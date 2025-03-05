@@ -1,13 +1,15 @@
 <div class="container">
-  <strong>{{name}}</strong>
+  <strong>{{pokemonData?.name}}</strong>
 
   <div class="container_image">
-    <img src={{image}} alt="">
+    <img [src]=pokemonData?.sprites?.front_default alt="">
   </div>
 
   <div class="container_types">
-    @for (type of types; track $index) {
-      <app-badge title={{type}}></app-badge>
+    @for (typeValue of pokemonData?.types; track $index) {
+      <app-badge
+        [title]=typeValue.type.name
+      ></app-badge>
     }
   </div>
 </div>

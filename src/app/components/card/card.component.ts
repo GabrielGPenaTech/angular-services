@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BadgeComponent } from "../badge/badge.component";
 import { PokemonService } from '../../services/pokemon/pokemon.service';
+import type { PokemonData } from '../../models/pokemonData';
 
 @Component({
   selector: 'app-card',
@@ -9,20 +10,27 @@ import { PokemonService } from '../../services/pokemon/pokemon.service';
   styleUrl: './card.component.css'
 })
 export class CardComponent implements OnInit {
-  name: string = 'charmander';
-  types: string[] = ['fire', 'rock'];
-  image: string = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpurepng.com%2Fpublic%2Fuploads%2Flarge%2Fpurepng.com-pokemonpokemonpocket-monsterspokemon-franchisefictional-speciesone-pokemonmany-pokemonone-pikachu-1701527786841sy02u.png&f=1&nofb=1&ipt=912ba93b1610e13e7d5e30c2d185dc168d8644665896e181aa585d21ef32b97c&ipo=images'
-
+  pokemonData?: PokemonData
 
   constructor(
     private service: PokemonService
   ) { }
 
   ngOnInit(): void {
-    const result = this.service.getPokemon("pikachu")
+    const result = this.service.getPokemon("charizard")
+
 
     result.subscribe({
-      next: (res) => console.log(res),
+      next: (res) => {
+        const { id, name, sprites, types } = res
+
+        this.pokemonData = {
+          id,
+          name,
+          sprites,
+          types
+        }
+      },
       error: (err) => console.log(err)
     })
   }
