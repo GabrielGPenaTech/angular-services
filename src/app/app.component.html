@@ -1,4 +1,11 @@
 <main>
-  <app-card></app-card>
+  <div class="container_input">
+    <input type="text" [(ngModel)]="pokemonNameInput">
+    <button (click)="getPokemon()" >search</button>
+  </div>
+
+  <app-card
+    [pokemonData]="currentPokemon"
+  ></app-card>
 </main>
 <router-outlet />

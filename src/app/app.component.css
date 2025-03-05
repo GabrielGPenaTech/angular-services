@@ -1,0 +1,45 @@
+.container_input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  input {
+    all: unset;
+    background-color: rgb(59, 59, 59);
+    padding: 0.5rem;
+    border-radius: 8px;
+    max-width: 100%;
+
+    &:focus {
+      outline: 1px solid white;
+
+    }
+  }
+
+  button {
+    all: unset;
+    background-color: rgb(173, 172, 172);
+    color: black;
+    text-align: center;
+    padding: 0.5rem;
+
+    font-weight: bold;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: transparent;
+      color: white;
+      border-color:  white;
+    }
+
+    &:focus {
+      outline: 1px solid white;
+
+    }
+  }
+}

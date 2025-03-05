@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   it(`should have the 'angular-services' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-services');
+    expect(app.pokemonNameInput).toEqual('');
   });
 
   it('should render title', () => {

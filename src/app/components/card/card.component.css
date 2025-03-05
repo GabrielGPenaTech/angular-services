@@ -14,13 +14,14 @@
 
 .container_image {
   background-color: #616161;
-  padding: 3rem;
+  padding: 1rem;
   border-radius: 8px;
 
 }
 
 img {
-  max-width: 7rem;
+  width: 9rem;
+  max-width: 9rem;
 }
 
 .container_types {

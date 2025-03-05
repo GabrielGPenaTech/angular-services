@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BadgeComponent } from "../badge/badge.component";
-import { PokemonService } from '../../services/pokemon/pokemon.service';
 import type { PokemonData } from '../../models/pokemonData';
 
 @Component({
@@ -10,28 +9,11 @@ import type { PokemonData } from '../../models/pokemonData';
   styleUrl: './card.component.css'
 })
 export class CardComponent implements OnInit {
+  @Input()
   pokemonData?: PokemonData
 
-  constructor(
-    private service: PokemonService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    const result = this.service.getPokemon("charizard")
-
-
-    result.subscribe({
-      next: (res) => {
-        const { id, name, sprites, types } = res
-
-        this.pokemonData = {
-          id,
-          name,
-          sprites,
-          types
-        }
-      },
-      error: (err) => console.log(err)
-    })
   }
 }
